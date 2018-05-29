@@ -28,12 +28,13 @@
     }
 
     body{
-        background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/d3/Site_of_coolness.jpg')
+        /* background-image: url('https://upload.wikimedia.org/wikipedia/commons/d/d3/Site_of_coolness.jpg'); */
     }
 </style>
 
 <!--End of styling -->
 
+{% extends 'base.html' %} {% block content %} {{block.super}}
 <body>
     <div class="container">
         <h1>Welcome to MamboStore</h1>
@@ -41,5 +42,7 @@
             Here at mambo store we carry out various functions that will allow users to interact on a different level
         </p>
     </div>
+    
 </body>
 </html>
+{% endblock %}
