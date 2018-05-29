@@ -28,8 +28,8 @@ Online socialising app that allows users to share ideas, products and communicat
 
 
 ### Technologies Used
-- Python ( **ver 3.6** )
-- Django ( **ver 1.11** )
+- Python ( **ver 3.6.5** )
+- Django ( **ver 2.05** )
 - Django Bootstrap 3
 - PostgreSQL
 - Heroku
