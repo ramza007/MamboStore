@@ -1,22 +1,20 @@
-# MamboStore
+## MamboStore
 
 ### By **Ramza Reseni**,
 
----
 
-
-## Description
+### Description
 Online socialising app that allows users to share ideas, products and communication
 
 
-#### Prerequisites
+##### Prerequisites
 
 * Python 3.6.5
 * Virtual environment
 * PostgreSQL
 
 
-### Installation Process
+#### Installation Process
 * open my [GitHub](https://github.com/ramza007)
 * find my repo *MamboStore*
 * run `git clone REPO-URL` in your terminal
@@ -29,7 +27,7 @@ Online socialising app that allows users to share ideas, products and communicat
 
 
 
-## Technologies Used
+### Technologies Used
 - Python ( **ver 3.6** )
 - Django ( **ver 1.11** )
 - Django Bootstrap 3
