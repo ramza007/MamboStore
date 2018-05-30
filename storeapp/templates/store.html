@@ -1,0 +1,89 @@
+{% extends 'base.html' %} {% load staticfiles%} {% load bootstrap3%} {% block content %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+
+<style>
+    
+    body{
+        /* background-color: black; */
+
+    }
+
+    .container{
+        padding-left: 10%; 
+        font-family: 'Abril Fatface', cursive;
+        margin-top: -1%;
+    }
+
+    .carousel-inner{
+        width: 90%;
+        height: auto;
+        border-radius: 20px;
+        
+    }
+
+    h2{
+        text-align: center;
+        margin-left: -10%;
+    }
+
+    .container1{
+        padding: 12%;
+        background-color: beige;
+        /* padding-top: 5%; */
+        margin-top: 10%;
+        border-radius: 20px;
+    }
+
+
+</style>
+
+<body>
+
+    <div class="container">
+        <h2>The MamboStore Exclusives</h2>
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators" style="padding-right: 10%;">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner">
+                <div class="item active">
+                    <img src="https://www.w3schools.com/bootstrap/ny.jpg" alt="Los Angeles" style="width:100%;">
+                </div>
+
+                <div class="item">
+                    <img src="https://www.w3schools.com/bootstrap/chicago.jpg" alt="Chicago" style="width:100%;">
+                </div>
+
+                <div class="item">
+                    <img src="https://www.w3schools.com/bootstrap/la.jpg" alt="New york" style="width:100%;">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container1">
+            <p>
+                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque officiis architecto excepturi, asperiores sequi expedita ea libero autem inventore qui dolorum ipsum aperiam, accusamus laboriosam voluptate? Itaque aliquam debitis ipsa.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias inventore harum, accusamus, iusto, nobis incidunt officia veniam voluptates quasi nemo eligendi consectetur sapiente dignissimos sequi odit autem. Ullam, dolore eligendi.
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum dolores ratione iure natus obcaecati, adipisci unde ipsam sequi facere nostrum hic perferendis labore corporis explicabo exercitationem! Tenetur at ipsum facilis.
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt libero reprehenderit veritatis debitis maxime quo perspiciatis voluptatum vel neque, necessitatibus eius voluptate nobis, quis rem nulla deleniti non doloremque! Ratione?
+            </p>
+    </div>
+
+</body>
+{% endblock %}
+</html>
