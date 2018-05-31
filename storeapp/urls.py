@@ -16,3 +16,6 @@ urlpatterns=[
     url(r'^profile/', views.profile, name = 'profile'),
     url(r'^stores/', views.store, name= 'stores')
 ]
+
+if settings.DEBUG:
+    urlpatterns+= static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
