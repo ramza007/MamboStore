@@ -1,4 +1,17 @@
 {%extends "registration/base.html"%} {% load bootstrap3 %} {% block content %}
+<style>
+    body{
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTU0oV-K8iN8dBuN3cmivhJuSsPGmQHO_FykJUKVRlEt-T0ccAK');
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+
+    .container{
+        margin-top: 5%;
+    }
+</style>
+
+<body>
 <div class="container">
     <div class="row">
         <!-- Empty div -->
@@ -15,9 +28,10 @@
                 <div class="panel-body">
 
                     <form action="/accounts/register/" method="post">
-                        {% csrf_token %} {% bootstrap_form form %}
-                        <div class="form-group">
+                        {% csrf_token %} {% bootstrap_form form layout='inline' %}
+                        <div class="form-group" style="text-align: center;">
                             <input type="submit" class="btn btn-primary btn-sm" value="Sign Up">
+                            <a href="/accounts/login" class="btn btn-danger btn-sm">Login</a>
                         </div>
 
                         <input type="hidden" name="next" value="{% url 'createProfile' %}">
@@ -33,3 +47,4 @@
 </div>
 
 {% endblock %}
+</body>
