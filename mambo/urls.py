@@ -9,5 +9,6 @@ from django.contrib.auth import views
 
 urlpatterns = [
     url('admin/', admin.site.urls),
+    url(r'^logout/$', views.logout, {"next_page": '/accounts/login'}),
     url(r'^', include('storeapp.urls')),
 ]

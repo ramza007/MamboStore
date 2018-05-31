@@ -23,7 +23,7 @@
                     <a href="/admin">Auth</a>
                 </li>
                 <li>
-                    <a href="/stores/">Stores</a>
+                    <a href="{% url 'stores' %}">Stores</a>
                 </li>
             </ul>
             <!-- Adding a search form  -->
@@ -46,10 +46,7 @@
             <!--Profile-->
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#" style="color: white;">{{request.user.username}}</a>
-                </li>
-                <li>
-                    <a href="/profile">Profile</a>
+                    <a href="{% url 'profile' %}" style="color: white;">{{request.user.username}}</a>
                 </li>
                 <li>
                     <a href="/">Ideas</a>
