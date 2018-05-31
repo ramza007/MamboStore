@@ -16,6 +16,7 @@
 
     .container-fluid1{
         padding: 15%;
+        /* color: white; */
     }
 </style>
 
@@ -26,47 +27,40 @@
 
 <div class="container-fluid1">
     <div class="row ">
-        <div class="col-md-4 col-lg-4 " style="border-color:rgb(19, 175, 167);">
-            <hr> {% for detail in info %} {% if detail.user.id == 7 %}
-            <h4>{{request.user.username}}</h4>
+        <div class="col-md-4 col-lg-4 ">
+            <hr> 
+            {% for detail in info %}
+            <h4 style="text-align: center;">{{request.user.username}}</h4>
             <img src="{{detail.profile_photo.url}}" alt="{{request.user.username}}" class="img-responsive img-thumbnail" width="60%"
-                height="40%" id="circular-image" style="border: 10px solid rgb(36, 74, 130,0); margin-bottom:20px;margin-bottom:20px;margin-left:20%; border-radius: 360px;"
-                ); <hr>
-            <p class="well" style="border-color:rgb(19, 175, 167)">
-                <span style=" color:rgb(19, 175, 167)">Bio :</span> {{detail.bio}}</p>
-            <a class="button" href="{%url 'createProfile' %}">Create Profile</a>
-            {% else %}
-            <img src="{{detail.profile_photo.url}}" alt="{{request.user.username}}" class="img-responsive img-thumbnail" width="60%"
-                height="40%" id="circular-image" style="margin-bottom:20px;margin-bottom:20px;margin-left:20%; border-radius: 360px;"
-                ); <hr>
-            <p class="well" style="border-color:rgb(19, 175, 167)">
+                height="60%" style="margin-bottom:20px;margin-bottom:20px;margin-left:20%; border-radius: 360px;">
+                <hr>
+            <p class="well" style="border-color:black">
                 <span style=" color:rgb(19, 175, 167)">Bio :</span> {{detail.bio}}
                 <button class="pull-right">
                     <a class="button" href="{% url 'createProfile'  %}">Edit</a>
                 </button>
             </p>
-
-
-            {% endif %} {% endfor %}
+            {% endfor %}
         </div>
 
 
         <!-- Current User's Posts  -->
         <div class=" well col-md-6 " style="padding:5px; border:2px; float:right; height:40%">
 
-            <p style=" color:rgb(19, 175, 167); text-align:left; font-size:25px;"> My Posts</p>
+            <h6 style="text-align:center; font-size:25px;"> My Items</h6>
             {% for pic in pics %} {% if pic %}
             <div class="col-md-8 col-sm-12">
                 <a href="{% url 'manageImage' pic.id  %}#">
                     <img src="{{pic.image.url}}" alt="{{Image.image_name}}" class="img-responsive img-thumbnail postImage" width="90%" height="90"
-                        style="padding:20px; margin-top:10px; border-color:rgb(19, 175, 167)">
+                        style="padding:20px; margin-top:10px; border-color: black">
                     <p style=" color:rgb(19, 175, 167); text-align:left; margin-left:20px;">{{pic.image_name}}</p>
 
             </div>
             {% else %}
-            <p>no pic yet</p>
-
+            
             {% endif %} {% endfor %}
+            <hr>
+            <p style="text-align: center;">No Items Yet</p>
         </div>
     </div>
 
