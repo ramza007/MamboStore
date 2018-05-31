@@ -31,8 +31,7 @@
             <hr> 
             {% for detail in info %}
             <h4 style="text-align: center;">{{request.user.username}}</h4>
-            <img src="{{detail.profile_photo.url}}" alt="{{request.user.username}}" class="img-responsive img-thumbnail" width="60%"
-                height="60%" style="margin-bottom:20px;margin-bottom:20px;margin-left:20%; border-radius: 360px;">
+            <img src="{{detail.profile_photo.url}}" alt="{{request.user.username}}"width="60%" height="60px" style="margin-bottom:20px;margin-bottom:20px;margin-left:20%; border-radius: 500px;">
                 <hr>
             <div class="well" style="border-color:black; text-align: center;">
                 <span style=" color:rgb(19, 175, 167); ">Bio :</span> {{detail.bio}}
@@ -52,7 +51,7 @@
                     <img src="{{pic.image.url}}" alt="{{Image.image_name}}" class="img-responsive img-thumbnail postImage" width="90%" height="90"
                         style="padding:20px; margin-top:10px; border-color: black">
                 </a>
-                    <h4 style=" color:rgb(19, 175, 167); text-align:center; margin-left:20px;">{{pic.image_name}}</h4>
+                    <h4 style=" color:rgb(19, 175, 167); text-align:center; margin-left:20px; font-family: 'Bowlby One SC', cursive;">{{pic.image_name}}</h4>
 
             </div>
             {% else %}
