@@ -43,22 +43,23 @@
 
 
         <!-- Current User's Posts  -->
-        <div class=" well" style="padding:15%; padding-top: 2%; border:2%; float:right; height:40%">
+        <div class=" well col-md-6 " style="padding:5px; border:2px; float:right; height:40%">
 
             <h6 style="text-align:center; font-size:25px;"> My Items</h6>
             {% for pic in pics %} {% if pic %}
-            <div class="col-md-8 col-sm-12">
-                <a href="{% url 'manageImage' pic.id  %}#">
+            <div style="text-align: center;">
+                <a href="{% url 'manageImage' pic.id  %}">
                     <img src="{{pic.image.url}}" alt="{{Image.image_name}}" class="img-responsive img-thumbnail postImage" width="90%" height="90"
                         style="padding:20px; margin-top:10px; border-color: black">
-                    <p style=" color:rgb(19, 175, 167); text-align:left; margin-left:20px;">{{pic.image_name}}</p>
+                </a>
+                    <h4 style=" color:rgb(19, 175, 167); text-align:center; margin-left:20px;">{{pic.image_name}}</h4>
 
             </div>
             {% else %}
             
+            <p style="text-align: center;">No Items Yet</p>
             {% endif %} {% endfor %}
             <hr>
-            <p style="text-align: center;">No Items Yet</p>
         </div>
     </div>
 
