@@ -3,8 +3,8 @@
 <!-- Content block -->
 {% block content %} {{block.super}}
 <div class="container">
-    <!-- Create Post form -->
     <div class="col-md-8 col-lg-8">
+    <!-- Create Post form -->
         <form action="{% url 'postImage'%}" method="post" enctype="multipart/form-data">
             {% csrf_token %} {% bootstrap_form form %}
             <input type="submit" class="btn btn-success btn-lg" value="Post">
