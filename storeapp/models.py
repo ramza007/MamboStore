@@ -65,3 +65,44 @@ class Image(models.Model):
         '''
         images = Image.objects.all()
         return images
+
+
+#-------------------- Comment Model---------------#
+class Comment(models.Model):
+    '''
+    Class that defines a Comment on a Post
+    '''
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Image, on_delete=models.CASCADE)
+    comment = models.TextField(blank=True)
+
+    def __str__(self):
+        return self.user.username
+
+    @classmethod
+    def get_post_comments(cls, post_id):
+        ''' Function that gets all the comments belonging to a single post
+        Args:
+            post_id : specific post
+        Returns:
+            comments : List of Comment objects for the specified post
+        '''
+        comments_list = Comment.objects.filter(post=post_id)
+
+        return comments_list
+
+#------------------------Follow Model----------------#
+class Follow(models.Model):
+    '''
+    Class that store a User and Profile follow status
+    '''
+    user = models.ForeignKey(User)
+    profile = models.ForeignKey(Profile)
+
+    def __str__(self):
+        return self.user.username
+
+    @classmethod
+    def get_following(cls, user_id):
+        following = Follow.objects.filter(user=user_id).all()
+        return following
