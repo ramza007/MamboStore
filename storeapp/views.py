@@ -4,8 +4,8 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from .models import  Image, Profile, Follow
 # , Comment, Like,Profile,
-from .forms import ProfileForm
-# ImagePostForm, CommentForm, 
+from .forms import ProfileForm, ImagePostForm
+# , CommentForm, 
 
 
 # Create your views here.
