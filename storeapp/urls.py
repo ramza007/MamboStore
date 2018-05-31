@@ -14,7 +14,8 @@ urlpatterns=[
     url(r'^$',views.index,name = 'index'),
     url(r'^accounts/', include('registration.backends.simple.urls')),
     url(r'^profile/', views.profile, name = 'profile'),
-    url(r'^stores/', views.store, name= 'stores')
+    url(r'^stores/', views.store, name= 'stores'),
+    url(r'^update/profile/', views.create_profile, name="createProfile"),
 ]
 
 if settings.DEBUG:
