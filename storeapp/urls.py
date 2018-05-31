@@ -17,6 +17,7 @@ urlpatterns=[
     url(r'^stores/', views.store, name= 'stores'),
     url(r'^update/profile/', views.create_profile, name="createProfile"),
     url(r'^post/', views.new_post, name='postImage'),
+    url(r'^manage/(\d+)', views.manage_image, name='manageImage'),
 ]
 
 if settings.DEBUG:
