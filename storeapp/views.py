@@ -158,6 +158,22 @@ def manage_image(request, photo_id):
     return render(request, 'manage-image.html', {'image': image, "user_info": user_info, "comments": comments, "likes": likes, "validate_vote": validate_vote})
 
 @login_required(login_url='/accounts/login')
+def single_image(request, photo_id):
+    '''
+    View funtion to display a particular image with its details
+    '''
+    image = Image.objects.get(id=photo_id)
+    # fetch the profile of the user who posted
+    user_info = Profile.objects.get(user=image.user.id)
+    comments = Comment.objects.filter(post=image.id)
+    validate_vote = Like.objects.filter(
+        user=request.user, post=photo_id).count()
+    upvotes = Like.get_post_likes(image.id)
+    likes = len(upvotes)
+    return render(request, 'single-image.html', {'image': image, "user_info": user_info, "comments": comments, "likes": likes, "validate_vote": validate_vote})
+
+
+@login_required(login_url='/accounts/login')
 def delete_post(request, image_id):
     '''
     View function to delete an image post
@@ -205,4 +221,45 @@ def new_comment(request, image_id):
     else:
         form = CommentForm()
     return render(request, 'new-comment.html', {"form": form, "current_image": current_image})
+
+@login_required(login_url='/accounts/login')
+def follow(request, id):
+    '''
+    View function add frofiles of other users to your timeline
+    '''
+    current_user = request.user
+
+    follow_profile = Profile.objects.get(id=id)
+
+    check_if_following = Follow.objects.filter(
+        user=current_user, profile=follow_profile).count()
+
+    if check_if_following == 0:
+
+        following = Follow(user=current_user, profile=follow_profile)
+
+        following.save()
+    else:
+        pass
+
+    return redirect(store)
+
+@login_required(login_url='/accounts/login')
+def unfollow(request, id):
+    '''
+    View function unfollow other users
+    '''
+    current_user = request.user
+
+    follow_profile = Profile.objects.get(id=id)
+
+    following = Follow.objects.filter(
+        user=current_user, profile=follow_profile)
+    # following = Follow(user=current_user, profile=follow_profile)
+    for item in following:
+        item.delete()
+
+    return redirect(store)
+
+
 
