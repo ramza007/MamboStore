@@ -37,7 +37,7 @@
 
     .container1{
         padding: 12%;
-        background-color: beige;
+        /* background-color: beige; */
         /* padding-top: 5%; */
         /* margin-top: 10%; */
         /* border-radius: 20px; */
@@ -76,13 +76,7 @@
     </div>
 
     <div class="container1">
-            <!-- <p>
-                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Itaque officiis architecto excepturi, asperiores sequi expedita ea libero autem inventore qui dolorum ipsum aperiam, accusamus laboriosam voluptate? Itaque aliquam debitis ipsa.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias inventore harum, accusamus, iusto, nobis incidunt officia veniam voluptates quasi nemo eligendi consectetur sapiente dignissimos sequi odit autem. Ullam, dolore eligendi.
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laborum dolores ratione iure natus obcaecati, adipisci unde ipsam sequi facere nostrum hic perferendis labore corporis explicabo exercitationem! Tenetur at ipsum facilis.
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt libero reprehenderit veritatis debitis maxime quo perspiciatis voluptatum vel neque, necessitatibus eius voluptate nobis, quis rem nulla deleniti non doloremque! Ratione?
-            </p> -->
-<section class="no-touch col-md-5">
+<section class="col-md-5 pull-right" style=" padding-top: 5%; ">
     {% for image in images %}
     <div class="wrap col-md-12" style="border-bottom: 2px solid rgb(19, 175, 167);">
         <div class="box col-md-12">
@@ -109,29 +103,22 @@
 
 </section>
 
-<section class="col-md-5 col-sm-12">
-    <center>
-        <p style=" margin-left:10px;color:rgb(4, 47, 74); padding-top:10px; margin-right:20px;font-size:25px; font-family: 'Kavivanar', cursive;
-">explore</p>
-    </center>
+<section class="pull-left" style=" padding: 10%; padding-top: 5%;">
+        <p style=" margin-left:10px;color:rgb(4, 47, 74); padding-top:10px; margin-right:20px;font-size:25px;">explore</p>
     {%for profile in shoppers %}
-    <div class="col-md-4">
+    <div class="card" style="padding: 20%; margin: 5%; ;">
         {% if profile %}
-
-        <img src="{{ profile.profile_photo.url }}" class="img-responsive" style="margin-left:60%; margin-top:10px;height:40px;width:40px; border-radius:50%; ">
-    </div>
-    </div>
-    <div class="col-md-8">
         <a href="{% url 'otherProfile' profile.id %}">
-            <p style="font-family: 'Kavivanar', cursive; padding-top:10px;font-size:23px; color: gray">{{profile.user}}</p>
+            <img src="{{ profile.profile_photo.url }}" class="img-responsive" style="margin-left:30%; margin-top:20px; height:40px; width:40px; border-radius:50%; ">
+            <p style="font-family: 'Kavivanar', cursive;font-size:23px; color: gray; text-align: center; ">{{profile.user}}</p>
         </a>
-
     </div>
 
     {% endif %} {% endfor %}
 </section>
-    </div>
+{% endblock %}
+</div>
 
 </body>
-{% endblock %}
+
 </html>
