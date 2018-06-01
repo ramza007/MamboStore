@@ -2,11 +2,8 @@ from django.shortcuts import render, redirect
 from django.http  import HttpResponse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
-from .models import  Image, Profile, Follow
-# , Comment, Like,Profile,
-from .forms import ProfileForm, ImagePostForm
-# , CommentForm, 
-
+from .models import  Image, Profile, Follow, Comment, Like
+from .forms import ProfileForm, ImagePostForm, CommentForm
 
 # Create your views here.
 #------------Home Page-----------#
@@ -15,7 +12,7 @@ def index(request):
     return render(request, 'index.html')
 
 
-#--------------Profile Function--------------#
+#--------------Profile Functions--------------#
 @login_required(login_url='/accounts/login')
 def profile(request):
     '''
@@ -73,6 +70,33 @@ def create_profile(request):
     else:
         form = ProfileForm()
     return render(request, 'update-profile.html', {"form": form})
+
+
+@login_required(login_url='/accounts/login')
+def other_profile(request, prof_id):
+    '''
+    View function to display a profile information of other users
+    '''
+    current_user = request.user
+
+    try:
+
+        info = Profile.objects.filter(id=prof_id)
+
+        follow_profile = Profile.objects.get(id=prof_id)
+
+        check_if_following = Follow.objects.filter(
+            user=current_user, profile=follow_profile).count()
+
+        pics = Image.objects.all().filter(user_id=prof_id)
+        nbr = pics.count()
+
+        title = f'{request.user.username}\'s'
+
+    except ObjectDoesNotExist:
+        raise Http404()
+
+    return render(request, 'other-profile.html', {"title": title, "nbr": nbr, "current_user": current_user, "info": info, "pics": pics, "check_if_following": check_if_following})
 
 #---------------MamboStore Functions-------------#
 
@@ -132,4 +156,53 @@ def manage_image(request, photo_id):
     upvotes = Like.get_post_likes(image.id)
     likes = len(upvotes)
     return render(request, 'manage-image.html', {'image': image, "user_info": user_info, "comments": comments, "likes": likes, "validate_vote": validate_vote})
+
+@login_required(login_url='/accounts/login')
+def delete_post(request, image_id):
+    '''
+    View function to delete an image post
+    '''
+    remove = Image.objects.get(id=image_id)
+    remove.delete()
+    return redirect(index)
+
+@login_required(login_url='/accounts/login')
+def like(request, id):
+    '''
+    View function add a like to a post the current user has liked
+    '''
+    current_user = request.user  # argument must be a string, a bytes-like object or a number, not 'Profile'
+
+    current_image = Image.objects.get(id=id)
+
+    validate_vote = Like.objects.filter(
+        user=current_user, post=current_image).count()
+
+    if validate_vote == 0:
+
+        like = Like(user=current_user, post=current_image, likes_number=int(1))
+        like.save()
+
+    else:
+        remove_like = Like.objects.filter(
+            user=current_user, post=current_image)
+        remove_like.delete()
+
+    return redirect(single_image, current_image.id)
+
+@login_required(login_url='/accounts/login/')
+def new_comment(request, image_id):
+    current_image = Image.objects.get(id=image_id)
+    current_user = request.user
+    if request.method == 'POST':
+        form = CommentForm(request.POST, request.FILES)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.user = current_user
+            comment.post = current_image
+            comment.save()
+        return redirect(single_image, current_image.id)
+    else:
+        form = CommentForm()
+    return render(request, 'new-comment.html', {"form": form, "current_image": current_image})
 

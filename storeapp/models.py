@@ -106,3 +106,38 @@ class Follow(models.Model):
     def get_following(cls, user_id):
         following = Follow.objects.filter(user=user_id).all()
         return following
+
+class Like(models.Model):
+    '''
+    Class that define the likes a post gets
+    '''
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Image, on_delete=models.CASCADE)
+    likes_number = models.PositiveIntegerField(null=True, blank=True)
+
+    def __str__(self):
+        return self.user.username
+
+    @classmethod
+    def get_post_likes(cls, post_id):
+        '''
+        Function that gets the likes belonging to a specified post
+        Args:
+            post_id : specific post
+        Returns:
+            post_likes : List of Like objects for the specified post
+        '''
+        post_likes = Like.objects.filter(post=post_id)
+
+        return post_likes
+
+    @classmethod
+    def num_likes(cls, post_id):
+        '''
+        Function that gets the total number of likes a post hasLegal
+        Args:
+            post_id : specific post
+        Returns:
+            found_likes : number of likes a post has
+        '''
+        post = Like.objects.filter(post=post_id)

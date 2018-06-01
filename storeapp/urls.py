@@ -18,6 +18,12 @@ urlpatterns=[
     url(r'^update/profile/', views.create_profile, name="createProfile"),
     url(r'^post/', views.new_post, name='postImage'),
     url(r'^manage/(\d+)', views.manage_image, name='manageImage'),
+    url(r'^profile/view/(\d+)', views.other_profile, name='otherProfile'),
+
+    #--------------Functions-------------#
+    url(r'^delete/post/(\d+)', views.delete_post, name="removePost"),
+    url(r'^like/(\d+)', views.like, name="like"),
+    url(r'^comment/(\d+)', views.new_comment, name='Comment'),
 ]
 
 if settings.DEBUG:

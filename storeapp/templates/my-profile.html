@@ -45,7 +45,7 @@
         <div class=" well col-md-6 " style="padding:5px; border:2px; float:right; height:40%">
 
             <h6 style="text-align:center; font-size:25px;"> My Items</h6>
-            {% for pic in pics %} {% if pic %}
+            {% for pic in pics %} {% if pic in pics %}
             <div style="text-align: center;">
                 <a href="{% url 'manageImage' pic.id  %}">
                     <img src="{{pic.image.url}}" alt="{{Image.image_name}}" class="img-responsive img-thumbnail postImage" width="90%" height="90"
@@ -55,10 +55,10 @@
 
             </div>
             {% else %}
-            
+
             <p style="text-align: center;">No Items Yet</p>
+            
             {% endif %} {% endfor %}
-            <hr>
         </div>
     </div>
 
