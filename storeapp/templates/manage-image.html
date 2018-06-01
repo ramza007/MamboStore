@@ -9,11 +9,11 @@
         </div>
 
         <!-- info of the user that posted -->
-        <header style="margin-top:20px; border-bottom: 1px solid #ddd">
+        <header style="margin-top:1%; border-bottom: 1px solid #ddd">
 
             <img src="{{user_info.profile_photo.url}}" alt="" style="height:40px;width:40px; border-radius:50%">
             <a href="{% url 'otherProfile' image.user.id %}">
-                <p style="display:inline; margin-left:10px; color:rgb(13, 100, 171); font-weight:bolder; font-size:12px; margin-bottom:10px">{{image.user}}</p>
+                <p style="display:inline; margin-left:10px; color:rgb(13, 100, 171); font-size:12px; margin-bottom:10px;">{{image.user}}</p>
                 <br>
                 <br>
             </a>
