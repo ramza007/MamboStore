@@ -121,6 +121,22 @@ def store(request):
 
     return render(request, 'store.html', {"images": images, "following": following, "user": current_user, "shoppers": shoppers})
 
+def search_results(request):
+
+    if 'shoppers' in request.GET and request.GET["shoppers"]:
+        search_term = request.GET.get("shoppers")
+        searched_users = User.objects.filter(username__icontains=search_term)
+        message = f"{search_term}"
+
+        for user in searched_users:
+            found = Profile.objects.get(user=user.id)
+
+        return render(request, 'searched.html', {"message": message, "users": searched_users, "found": found})
+
+    else:
+        message = "You haven't searched for any term"
+        return render(request, 'searched.html', {"message": message})
+
 
 
 #----------------Item Functions--------------#

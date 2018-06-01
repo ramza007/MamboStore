@@ -26,7 +26,7 @@ class Profile(models.Model):
         return profiles
 
     @classmethod
-    def search_by_grammer(cls, search_term):
+    def search_by_shoppers(cls, search_term):
         query = cls.objects.filter(bio__icontains=search_term)
         return query
 

@@ -28,6 +28,7 @@ urlpatterns=[
     url(r'^comment/(\d+)', views.new_comment, name='Comment'),
     url(r'^unfollow/(\d+)', views.unfollow, name="unfollow"),
     url(r'^follow/(\d+)', views.follow, name="follow"),
+    url(r'^search/', views.search_results, name='search_results'),
 
 
 ]

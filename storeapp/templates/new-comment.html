@@ -4,13 +4,13 @@
 <!-- Content block -->
 {% block content %} {{block.super}}
 
-<div class="container">
-    <div class="col-md-8 col-lg-8">
-        <form action="{% url 'Comment' current_image.id%}" method="post" enctype="multipart/form-data">
+<body style=" background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS97mtNcFkO57H1K2i21OoVNghw6uiym6vJy7Vf2iYtN3sva41Q');  background-size: cover;">
+<div class="container" style="padding: 15%; padding-top: 10%;">
+    <div></div>
+        <form action="{% url 'Comment' current_image.id%}" method="post" enctype="multipart/form-data" style="text-align: center;">
             {% csrf_token %} {% bootstrap_form form %}
             <input type="submit" class="btn btn-success btn-md" value="Post">
         </form>
-    </div>
 </div>
-
+</body>
 {% endblock %}
