@@ -15,8 +15,9 @@
     }
 
     .container-fluid1{
-        padding: 12%;
-        /* color: white; */
+        padding: 10%;
+        padding-top: 15%;
+        /* background-color: blue; */
     }
 </style>
 
@@ -31,7 +32,7 @@
             <hr> 
             {% for detail in info %}
             <h4 style="text-align: center;">{{request.user.username}}</h4>
-            <img src="{{detail.profile_photo.url}}" alt="{{request.user.username}}"width="60%" height="60px" style="margin-bottom:20px;margin-bottom:20px;margin-left:20%; border-radius: 500px;">
+            <img src="{{detail.profile_photo.url}}" alt="{{request.user.username}}"width="60%"; height="80%"; style="margin-bottom:20px;margin-bottom:20px;margin-left:20%; border-radius: 50px;">
                 <hr>
             <div class="well" style="border-color:black; text-align: center;">
                 <span style=" color:rgb(19, 175, 167); ">Bio :</span> {{detail.bio}}
@@ -41,8 +42,8 @@
         </div>
 
 
-        <!-- Current User's Posts  -->
-        <div class=" well col-md-6 " style="padding:5px; border:2px; float:right; height:40%">
+        <!-- Current User's Items  -->
+        <div class=" well col-md-4 " style="padding:5px; border:2px; float:right; height:40%">
 
             <h6 style="text-align:center; font-size:25px;"> My Items</h6>
             {% for pic in pics %} {% if pic in pics %}
