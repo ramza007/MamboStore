@@ -94,15 +94,17 @@
     <div class="wrap col-md-12" style="border-bottom: 2px solid rgb(19, 175, 167); margin-top: 5%; ">
         <div class="box col-md-12">
             <div class="">
+                <p style="color:rgb(35, 106, 180);; margin-right: 60%; font-weight:bolder; border-radius: 5px;">{{image.user.username}}</p>
                 <a href="{% url 'singleImage' image.id %}">
                     <img src="{{ image.image.url }}" class="img-responsive pull-right" style="height:60%; width:90%; border-radius: 5px; margin-top: 2%;">
                 </a>
                 <div style="margin-bottom:30px;">
                     <br>
                     <br>
-                    <span style="color:rgb(35, 106, 180)">{{image.user.username}}</span>
+                    <!-- <span style="color:rgb(35, 106, 180)">{{image.user.username}}</span> -->
                     <br>
-                    
+                    <br>
+
                     <a href="{% url 'Comment' image.id %}">
                         <button type="button" class="btn btn-primary" name="button">Comment</button>
                     </a>

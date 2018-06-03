@@ -139,6 +139,7 @@ def search_results(request):
 
 
 
+
 #----------------Item Functions--------------#
 @login_required(login_url='/accounts/login')
 def new_post(request):
