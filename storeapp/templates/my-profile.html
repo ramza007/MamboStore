@@ -7,9 +7,9 @@
          background-color: crimson;
          border-radius: 20px;
          font-size: 200%;
-         margin-left: 15%;
-         margin-right: 15%;
-         font-family: 'Amatic SC', cursive;
+         margin-left: 5%;
+         margin-right: 5%;
+         font-family: 'Permanent Marker', cursive;
          /* opacity: 0.98; */
 
     }
@@ -23,15 +23,16 @@
 
 <body>
 <div id="container">
-    <h1>Welcome To Your Profile </h1>
+    <h1 class="animated zoomIn">Welcome To Your Profile </h1>
 </div>
 
+<div class="animated zoomIn">
 <div class="container-fluid1">
     <div class="row ">
         <div class="col-md-4 col-lg-4 ">
             <hr> 
             {% for detail in info %}
-            <h4 style="text-align: center;">{{request.user.username}}</h4>
+            <h4 style="text-align: center; font-family: 'Permanent Marker', cursive;" >{{request.user.username}}</h4>
             <img src="{{detail.profile_photo.url}}" alt="{{request.user.username}}"width="60%"; height="80%"; style="margin-bottom:20px;margin-bottom:20px;margin-left:20%; border-radius: 50px;">
                 <hr>
             <div class="well" style="border-color:black; text-align: center;">
@@ -62,6 +63,7 @@
             {% endif %} {% endfor %}
         </div>
     </div>
-
+</div>
+</div>
 </body>
 {% endblock %}

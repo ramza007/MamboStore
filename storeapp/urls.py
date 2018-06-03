@@ -20,6 +20,7 @@ urlpatterns=[
     url(r'^manage/(\d+)', views.manage_image, name='manageImage'),
     url(r'^other/profile/(\d+)', views.other_profile, name='otherProfile'),
     url(r'^single/image/(\d+)', views.single_image, name='singleImage'),
+    # url(r'^no-profile/', views.no_profile, name = 'noprofile'),
 
 
     #--------------Functions-------------#

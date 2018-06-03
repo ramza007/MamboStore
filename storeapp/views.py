@@ -7,7 +7,7 @@ from .forms import ProfileForm, ImagePostForm, CommentForm
 
 # Create your views here.
 #------------Home Page-----------#
-@login_required(login_url='/accounts/login/')
+# @login_required(login_url='/accounts/login/')
 def index(request):
     return render(request, 'index.html')
 
