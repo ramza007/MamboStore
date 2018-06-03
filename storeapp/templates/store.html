@@ -56,6 +56,8 @@
                 <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
                 <li data-target="#myCarousel" data-slide-to="1"></li>
                 <li data-target="#myCarousel" data-slide-to="2"></li>
+                <li data-target="#myCarousel" data-slide-to="3"></li>
+                <li data-target="#myCarousel" data-slide-to="4"></li>
             </ol>
 
             <!-- Wrapper for slides -->
@@ -70,6 +72,12 @@
 
                 <div class="item">
                     <img src="https://www.w3schools.com/bootstrap/la.jpg" alt="New york" style="width:100%;">
+                </div>               
+                <div class="item">
+                    <img src="https://cdn.thesolesupplier.co.uk/2017/09/FENTY-x-PUMA-Velvet-Creeper-Black.png" alt="fenty" style="width:100%;">
+                </div>                
+                <div class="item">
+                    <img src="https://infinitediaries.net/wp-content/uploads/2018/04/iPhone-8-PRODUCT-RED-hero-1000x500@2x.png" alt="iphone" style="width:100%;">
                 </div>
             </div>
         </div>
@@ -79,42 +87,42 @@
     <div class="container1">
 <section class="col-md-5 pull-right" style=" padding-top: 5%; ">
     {% for image in images %}
-    <div class="wrap col-md-12" style="border-bottom: 2px solid rgb(19, 175, 167);">
+    <div class="wrap col-md-12" style="border-bottom: 2px solid rgb(19, 175, 167); margin-top: 5%; ">
         <div class="box col-md-12">
             <div class="">
                 <a href="{% url 'singleImage' image.id %}">
-                    <img src="{{ image.image.url }}" class="img-responsive pull-right" style="height:60%; width:90%; border-radius: 5px">
+                    <img src="{{ image.image.url }}" class="img-responsive pull-right" style="height:60%; width:90%; border-radius: 5px; margin-top: 2%;">
                 </a>
                 <div style="margin-bottom:30px;">
-                    {{image.image_caption}}
                     <br>
                     <br>
                     <span style="color:rgb(35, 106, 180)">{{image.user.username}}</span>
-                    <span style="color:grey ;margin-left:10px; font-size:10px;"> click image to see details</span>
                     <br>
-                    <br>
+                    
                     <a href="{% url 'Comment' image.id %}">
                         <button type="button" class="btn btn-primary" name="button">Comment</button>
                     </a>
+                    <span style="color:grey ;margin-left:10px; font-size:10px; text-align: left;" > click image to see details</span>
                 </div>
             </div>
         </div>
+        <p>{{image.image_caption}}</p>
     </div>
     {% endfor %}
 
 </section>
 
-<section class="pull-left" style=" padding: 10%; padding-top: 5%;">
-        <p style=" margin-left:10px;color:rgb(4, 47, 74); padding-top:10px; margin-right:20px;font-size:25px;">explore</p>
+<section class="pull-left" style=" padding-top: 5%;">
+        <p style=" margin-left:20%;color:rgb(4, 47, 74); padding-top:10px; margin-right:20px;font-size:25px;">explore</p>
     {%for profile in shoppers %}
-    <div class="card" style="padding: 20%; margin: 5%; ;">
+    <div class="card" style="margin-top: 50%;">
         {% if profile %}
         <a href="{% url 'otherProfile' profile.id %}">
-            <img src="{{ profile.profile_photo.url }}" class="img-responsive" style="margin-left:30%; margin-top:20px; height:40px; width:40px; border-radius:50%; ">
-            <p style="font-family: 'Kavivanar', cursive;font-size:23px; color: gray; text-align: center; ">{{profile.user}}</p>
+            <img src="{{ profile.profile_photo.url }}" class="img-responsive" style=" height:40px; width:40px; border-radius:50%;">
         </a>
+        <p style="font-family: 'Kavivanar', cursive;font-size:23px; color: gray; margin-left: 50px; margin-top: -40px; ">{{profile.user}}</p>
     </div>
-
+    
     {% endif %} {% endfor %}
 </section>
 {% endblock %}

@@ -1,9 +1,4 @@
  {% extends 'base.html' %} {% load staticfiles%} {% load bootstrap3%} {% block content %}
-<style>
-    i.fa.fa-plus-square-o{
-    margin-left: 0.25em;
-}
-</style>
 <div class="col-sm-1">
 
 </div>
@@ -17,12 +12,11 @@
 
             <img src="{{user_info.profile_photo.url}}" alt="" style="height:40px;width:40px; border-radius:50%">
             <a href="{% url 'otherProfile' image.user.id %}">
-                <p style="display:inline; margin-left:10px; color:rgb(13, 100, 171); font-weight:bolder; font-size:12px; margin-bottom:10px">{{image.user}}</p>
-                <br>
+                <p style="display:inline; margin-left:10px; color:rgb(13, 100, 171); font-weight:bolder; font-size:15px;">{{image.user}}</p>
                 <br>
             </a>
             <!-- end user info -->
-
+                <hr>
             <!-- image posted -->
             <div class="col-12" style="margin-left:0px">
                 <img src="{{image.image.url}}" style="height:70%; width:100%; margin-left:0px" class="img-responsive">
@@ -51,9 +45,10 @@
                 <i class="fa fa-heart" aria-hidden="true" style="color:red;"></i>
             </a>
             {% endif %} {{likes}} likes </p> -->
-        <h3 style="text-decoration:none; color:rgb(13, 100, 171); font-size:15px">
-            <a href="{% url 'Comment' image.id %}">
-                <i class="fa fa-comment-o" aria-hidden="true"></i> Comment</a>
+        <h3 style="font-size:15px">
+                    <a href="{% url 'Comment' image.id %}">
+                        <button type="button" class="btn btn-primary" name="button">Comment</button>
+                    </a>
         </h3>
         {% for comment in comments %}
         <p style="margin-bottom:-1px">
