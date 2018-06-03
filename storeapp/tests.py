@@ -31,16 +31,16 @@ class ProfileTestClass(TestCase):
         profiles = Profile.objects.all()
         self.assertTrue(len(gotten_profiles) == len(profiles))
 
-    # def test_get_other_profiles(self):
-    #     '''
-    #     Test case to check if all profiles are gotten from the database
-    #     '''
-    #     self.james = User(username="kiki")
-    #     self.james.save()
+    def test_get_other_profiles(self):
+        '''
+        Test case to check if all profiles are gotten from the database
+        '''
+        self.james = User(username="kiki")
+        self.james.save()
 
-    #     self.jane = User(username="ja-ne")
-    #     self.jane.save()
+        self.jane = User(username="ja-ne")
+        self.jane.save()
 
-    #     self.test_profile = Profile(user=self.jane, bio="Another Profile")
-    #     gotten_profiles = Profile.get_other_profiles(self.james.id)
-    #     profiles = Profile.objects.all()
+        self.test_profile = Profile(user=self.jane, bio="Another Profile")
+        gotten_profiles = Profile.get_other_profiles(self.james.id)
+        profiles = Profile.objects.all()

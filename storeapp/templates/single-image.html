@@ -1,9 +1,13 @@
  {% extends 'base.html' %} {% load staticfiles%} {% load bootstrap3%} {% block content %}
-
+<style>
+    i.fa.fa-plus-square-o{
+    margin-left: 0.25em;
+}
+</style>
 <div class="col-sm-1">
 
 </div>
-<div class="col-sm-6 col-md-offset-2" style="margin-top:10px">
+<div class="col-sm-4 col-md-offset-3" style="margin-top:1%">
     <div class="well" style="background-color:white; margin-bottom:70px">
         <div class="like" style="font-size:30px">
         </div>
@@ -33,20 +37,20 @@
 
         {{block.super}}
 
-        <p style="margin-top:10px;font-weight:bolder; font-size:16px">
+        <!-- <p style="margin-top:10px;font-weight:bolder; font-size:16px">
 
 
             {% if validate_vote == 0 %}
 
             <a href="{%url 'like' image.id%}">
-                <i class="fa fa-heart-o" aria-hidden="true"></i>
+                <i style="margin-left: 0.25em;" class="fa fa-heart-o" aria-hidden="true"></i>
             </a>
 
             {% else %}
             <a href="{%url 'like' image.id%}">
                 <i class="fa fa-heart" aria-hidden="true" style="color:red;"></i>
             </a>
-            {% endif %} {{likes}} likes </p>
+            {% endif %} {{likes}} likes </p> -->
         <h3 style="text-decoration:none; color:rgb(13, 100, 171); font-size:15px">
             <a href="{% url 'Comment' image.id %}">
                 <i class="fa fa-comment-o" aria-hidden="true"></i> Comment</a>
