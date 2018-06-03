@@ -1,0 +1,1 @@
+web: gunicorn mambo.wsgi --log-file -
