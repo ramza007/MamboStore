@@ -34,4 +34,6 @@ Online socialising app that allows users to share ideas, products and communicat
 - PostgreSQL
 - Heroku
 
+#### License under [***Apache-2.0***](https://github.com/ramza007/MamboStore/blob/master/LICENSE)
+
 Copyright (C) 2018 ~ Reseni
